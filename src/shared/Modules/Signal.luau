@@ -177,4 +177,12 @@ setmetatable(Signal, {
 	end,
 })
 
+export type Signal<T...> = {
+	Connect: (self: Signal<T...>, fn: (T...) -> ()) -> any,
+	Once: (self: Signal<T...>, fn: (T...) -> ()) -> any,
+	Fire: (self: Signal<T...>, T...) -> (),
+	Wait: (self: Signal<T...>) -> T...,
+	DisconnectAll: (self: Signal<T...>) -> (),
+}
+
 return Signal

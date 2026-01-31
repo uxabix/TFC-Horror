@@ -2,6 +2,8 @@
 --!native
 
 local RunService = game:GetService("RunService")
+local SignalModule = require(game:GetService("ReplicatedStorage").Modules.Signal)
+type Signal<T...> = SignalModule.Signal<T...>
 
 local Timer = {}
 
@@ -25,11 +27,12 @@ type TimerClassImpl<T> = {
 export type TimerClass = {
 	Duration: number,
 	TimeLeft: number,
+	TickRate: number,
 
 	Running: boolean,
 
-	OnTick: BindableEvent,
-	OnFinished: BindableEvent,
+	OnTick: Signal<number>,
+	OnFinished: Signal<>,
 
 	_startTime: number,
 	_endTime: number,
@@ -59,7 +62,7 @@ do
 					break
 				end
 
-				task.wait(0.1)
+				task.wait(self.TickRate)
 			end
 		end)
 	end
@@ -96,15 +99,19 @@ end
 
 local __meta: { __index: TimerClass } = table.freeze({ __index = __class })
 
-function Timer.new(duration: number): TimerClass
+function Timer.new(duration: number, tickRate: number?): TimerClass
 	local self = (setmetatable({}, __meta) :: any) :: TimerClass
 
 	self.Duration = duration
 	self.TimeLeft = duration
+	self.TickRate = tickRate or 0.5
+
+	assert(self.TickRate > 0, "TickRate must be > 0")
+
 	self.Running = false
 
-	self.OnTick = Instance.new("BindableEvent")
-	self.OnFinished = Instance.new("BindableEvent")
+	self.OnTick = SignalModule.new()
+	self.OnFinished = SignalModule.new()
 
 	debugPrint("RS.Classes.Timer: New Timer created:", self)
 
