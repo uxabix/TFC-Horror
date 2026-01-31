@@ -78,8 +78,8 @@ do
 
 	function __class:Destroy(): ()
 		self:Stop()
-		self.OnTick:Destroy()
-		self.OnFinished:Destroy()
+		self.OnTick:DisconnectAll()
+		self.OnFinished:DisconnectAll()
 	end
 
 	function __class:GetRemainingTime(): number
