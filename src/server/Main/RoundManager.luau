@@ -22,7 +22,7 @@ end)
 function RoundManager.Start()
 	local StartTick = tick()
 
-	local Conenction
+	local Connection
 	Connection = RunService.Heartbeat:Connect(function(Delta)
 		if tick() - StartTick >= RoundTime then
 			warn("Round end!")

@@ -4,7 +4,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Modules = ReplicatedStorage.Modules
 local Signal = require(Modules.Signal)
 
-local Template = script.Template
+local Template = ReplicatedStorage.Storage.NPCS.Template
 local Map = workspace.Map
 local NPC_Spawn = Map.NPC_Spawn
 local NPC_Waypoints = Map.NPC_Waypoints
@@ -17,11 +17,11 @@ local function FollowPath(
 	NPC: Model,
 	Path: Path,
 	Destination: Vector3,
-	NextWaypointIndex: NumberValue,
-	Final: BoolValue,
-	ReachedSignal
+	NextWaypointIndex: number,
+	Final: boolean,
+	ReachedSignal: typeof(Signal.new())?
 )
-	local Humanoid: Humanoid = NPC.Humanoid
+	local Humanoid: Humanoid = NPC:WaitForChild("Humanoid") :: Humanoid
 
 	local Waypoints = {}
 	local YIELDING = true
@@ -30,7 +30,9 @@ local function FollowPath(
 	local Reached_Con
 
 	local s, e = pcall(function()
-		Path:ComputeAsync(NPC.PrimaryPart.Position, Destination)
+		local primary = NPC.PrimaryPart
+		assert(primary, "NPC has no PrimaryPart")
+		Path:ComputeAsync(primary.Position, Destination)
 	end)
 
 	if s and Path.Status == Enum.PathStatus.Success then
@@ -39,7 +41,7 @@ local function FollowPath(
 		Blocked_Con = Path.Blocked:Connect(function(BlockedIndex)
 			if BlockedIndex >= NextWaypointIndex then
 				Blocked_Con:Disconnect()
-				FollowPath(NPC, Path, Destination)
+				FollowPath(NPC, Path, Destination, NextWaypointIndex, Final, ReachedSignal)
 			end
 		end)
 
