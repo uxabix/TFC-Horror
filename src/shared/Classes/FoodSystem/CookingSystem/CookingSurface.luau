@@ -2,8 +2,8 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local FoodItemModule = require(ReplicatedStorage.Classes.FoodItem)
-local CookingTypes = require(ReplicatedStorage.Classes.CookingTypes)
+local FoodItemModule = require(ReplicatedStorage.Classes.FoodSystem.FoodItem)
+local CookingTypes = require(ReplicatedStorage.Classes.FoodSystem.CookingSystem.CookingTypes)
 
 type FoodItem = FoodItemModule.FoodItem
 type CookingSurfaceType = CookingTypes.CookingSurfaceType

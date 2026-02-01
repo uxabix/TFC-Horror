@@ -2,7 +2,7 @@
 
 -- UNFINISEHED: FoodItem class to represent food items and their cooking states
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CookingTypes = require(ReplicatedStorage.Classes.CookingTypes)
+local CookingTypes = require(ReplicatedStorage.Classes.FoodSystem.CookingSystem.CookingTypes)
 
 type CookingSurfaceType = CookingTypes.CookingSurfaceType
 type FoodState = CookingTypes.FoodState
