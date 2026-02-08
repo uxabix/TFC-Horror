@@ -128,5 +128,34 @@
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
+		
+		<Item class="ProximityPrompt" referent="RBXE6D1F4AB686D431E909C830046AC5BCF">
+			<Properties>
+				<string name="ActionText">Interact</string>
+				<bool name="AutoLocalize">true</bool>
+				<bool name="ClickablePrompt">true</bool>
+				<bool name="Enabled">true</bool>
+				<token name="Exclusivity">0</token>
+				<token name="GamepadKeyCode">1000</token>
+				<float name="HoldDuration">0</float>
+				<token name="KeyboardKeyCode">101</token>
+				<float name="MaxActivationDistance">10</float>
+				<float name="MaxIndicatorDistance">0</float>
+				<string name="ObjectText"></string>
+				<bool name="RequiresLineOfSight">true</bool>
+				<Ref name="RootLocalizationTable">null</Ref>
+				<token name="Style">0</token>
+				<Vector2 name="UIOffset">
+					<X>0</X>
+					<Y>0</Y>
+				</Vector2>
+				<BinaryString name="AttributesSerialize"></BinaryString>
+				<SecurityCapabilities name="Capabilities">0</SecurityCapabilities>
+				<bool name="DefinesCapabilities">false</bool>
+				<string name="Name">ProximityPrompt</string>
+				<int64 name="SourceAssetId">-1</int64>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
 	</Item>
 </roblox>
