@@ -20,8 +20,8 @@ function FoodSpawner.Spawn(foodName: string, position: Vector3)
 	local template = FoodAssets:FindFirstChild(foodName)
 	assert(template, "Missing food model: " .. foodName)
 
-	local model = template:Clone()
-	model:SetPrimaryPartCFrame(CFrame.new(position))
+	local model: Model = template:Clone()
+	model:PivotTo(CFrame.new(position))
 	model.Parent = FoodFolder
 
 	foodToModel[foodItem] = model
