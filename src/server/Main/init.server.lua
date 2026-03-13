@@ -6,11 +6,14 @@ local HttpService = game:GetService("HttpService")
 local TeleportService = game:GetService("TeleportService")
 local PhysicsService = game:GetService("PhysicsService")
 local CollectionService = game:GetService("CollectionService")
+local ServerScriptService = game:GetService("ServerScriptService")
 
 local Events = ReplicatedStorage.Events
 local RepStorage = ReplicatedStorage.Storage
 local Classes = ReplicatedStorage.Classes
 
+local CookingSurfaceController = require(ServerScriptService.World.CookingSurfaceController)
+local FoodSpawner = require(ServerScriptService.World.FoodSpawner)
 local TimerClass = require(Classes.Timer)
 
 local RoundStartEvent = Events.RoundStart
@@ -40,3 +43,5 @@ Players.PlayerAdded:Connect(function(Player)
 
 	Player.CharacterAdded:Connect(function(Character) end)
 end)
+
+CookingSurfaceController.Init()
