@@ -6,9 +6,27 @@ This project is built with **Roblox Studio + Rojo** and follows a staged roadmap
 
 ---
 
+## Table of Contents
+- [TFC-Horror](#tfc-horror)
+  - [Table of Contents](#table-of-contents)
+  - [Project Status](#project-status)
+  - [Core Gameplay Concept](#core-gameplay-concept)
+  - [MVP Scope (Prototype)](#mvp-scope-prototype)
+  - [Development Roadmap Overview](#development-roadmap-overview)
+  - [Tech Stack](#tech-stack)
+  - [Project Structure](#project-structure)
+  - [Getting Started](#getting-started)
+    - [Requirements](#requirements)
+    - [Build the Place](#build-the-place)
+  - [License](#license)
+  - [Demonstration](#demonstration)
+    - [Gameplay Examples](#gameplay-examples)
+    - [Restaurant Layout](#restaurant-layout)
+    - [Disclaimer](#disclaimer)
+
 ## Project Status
 
-🚧 **In Active Development**  
+🚧 **PAUSED**  
 Current focus: **MVP → v0.x core gameplay systems**
 
 See the full development plan here:  
@@ -152,6 +170,27 @@ is strictly prohibited.
 See the full license text here:  
 📄 [LICENSE](./LICENSE)
 
+
+## Demonstration
+
+<div align="center">
+
+### Gameplay Examples
+
+**Items & Cooking System**  
+![Items Demo](Demonstration/Items.gif)  
+_Item interaction_
+
+**NPC Customers**  
+![NPCs Demo](Demonstration/NPCs.gif)  
+_Simple customer behavior and queues_
+
+### Restaurant Layout  
+![Map 1](Demonstration/Map.png)  
+![Map 2](Demonstration/Map2.png)  
+![Map 3](Demonstration/Map3.png)  
+
+</div>
 
 ### Disclaimer
 
